@@ -1,0 +1,152 @@
+/* Reset */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+/* Container principal */
+.ponto-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  width: 100%;
+  background: #f5f5f5;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* Título */
+.ponto-title {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 20px 0;
+  color: #333;
+}
+
+/* Grade de botões (sempre 2 colunas → 2x2 layout) */
+.ponto-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* força 2 colunas */
+  gap: 12px;
+  padding: 16px;
+  flex: 1;
+}
+
+/* Estilo base dos cards */
+.card {
+  border-radius: 14px;
+  padding: 24px 12px;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  text-transform: uppercase;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* Cores por tipo */
+.card.entrada {
+  background: #2ecc71; /* verde */
+}
+
+.card.pausa {
+  background: #3498db; /* azul */
+}
+
+.card.retorno {
+  background: #f1c40f; /* amarelo */
+  color: #333;
+}
+
+.card.saida {
+  background: #e74c3c; /* vermelho */
+}
+
+/* Quando já registrado (desabilitado) */
+.desabilitado {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Ícones e texto */
+.numero {
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+}
+
+.texto {
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+}
+
+.icone {
+  font-size: 2rem;
+}
+
+/* Rodapé */
+.ponto-footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: white;
+  padding: 12px;
+  border-top: 1px solid #ddd;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.status {
+  font-size: 0.9rem;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* --- Responsividade --- */
+
+/* Tablet */
+@media (min-width: 768px) {
+  .ponto-title {
+    font-size: 1.5rem;
+  }
+  .card {
+    font-size: 1.1rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .ponto-container {
+    max-width: 800px; /* mais compacto */
+    margin: auto;
+  }
+  .card {
+    font-size: 1.2rem;
+    padding: 30px;
+  }
+}
+
+.pontos-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.pontos-header h2 {
+  margin: 0;
+}
