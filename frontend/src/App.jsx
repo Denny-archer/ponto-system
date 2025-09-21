@@ -1,68 +1,38 @@
-import React from "react";
-import "./styles/login.css";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import Login from "./pages/login";
+import Home from "./pages/home";
+import Ponto from "./pages/ponto";
+import Selfie from "./pages/selfie";     // 👈 nova rota
+import Confirmacao from "./pages/confirmacao";
+import PontosBatidos from "./pages/pontosBatidos";
+
 
 function App() {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Tentando logar...");
-    // lógica de login aqui
-  };
-
   return (
-    <div className="login-container">
-      <div className="login-box">
-        <h2 className="login-title">Entrar na sua conta</h2>
+    <Router>
+      <Routes>
+        {/* Tela de Login */}
+        <Route path="/login" element={<Login />} />
 
-        <form onSubmit={handleSubmit}>
-          {/* Usuário/Email */}
-          <div className="input-group">
-            <label htmlFor="username" className="sr-only">
-              Usuário ou E-mail
-            </label>
-            <input
-              id="username"
-              type="text"
-              placeholder="Usuário ou E-mail"
-              className="form-control"
-              autoComplete="username"
-              required
-            />
-          </div>
+        {/* Tela inicial depois do login */}
+        <Route path="/home" element={<Home />} />
 
-          {/* Senha */}
-          <div className="input-group">
-            <label htmlFor="password" className="sr-only">
-              Senha
-            </label>
-            <input
-              id="password"
-              type="password"
-              placeholder="Senha"
-              className="form-control"
-              autoComplete="current-password"
-              required
-            />
-          </div>
+        {/* Tela de seleção do tipo de ponto */}
+        <Route path="/ponto" element={<Ponto />} />
 
-          {/* Lembrar de mim */}
-          <div className="options">
-            <label>
-              <input type="checkbox" /> Lembrar de mim
-            </label>
-            <a href="/recuperar-senha" className="forgot-link">
-              Esqueci minha senha
-            </a>
-          </div>
+        {/* Captura de selfie */}
+        <Route path="/selfie" element={<Selfie />} />
 
-          {/* Botão */}
-          <button type="submit" className="btn-login">
-            Entrar
-          </button>
-        </form>
+        {/* Tela de confirmação */}
+        <Route path="/confirmacao" element={<Confirmacao />} />
 
-        
-      </div>
-    </div>
+        {/* Tela de pontos batidos */}
+        <Route path="/pontos" element={<PontosBatidos />} />
+
+        {/* Redireciona para login por padrão */}
+        <Route path="*" element={<Navigate to="/login" replace />} />
+      </Routes>
+    </Router>
   );
 }
 

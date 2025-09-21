@@ -1,0 +1,81 @@
+/* ===========================
+   HOME PAGE
+   =========================== */
+
+/* reset raiz */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Container principal */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100dvh;     /* ocupa altura total no mobile */
+  margin: 0;
+  padding: 0;
+  background: #f5f5f5;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+.home-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Bloco vermelho ocupando toda a área útil (menos o rodapé) */
+.card-bater-ponto {
+  flex: 1;
+  width: 100%;
+  margin: 0;              /* sem margem lateral */
+  padding: 0;
+  border-radius: 0;        /* sem bordas arredondadas */
+  box-shadow: none;
+  background: #e74c3c;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: #fff;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* Tipografia interna */
+.card-bater-ponto h2 { margin: 8px 0 4px; }
+.card-bater-ponto p  { font-size: .95rem; }
+.clock-icon { font-size: 2.2rem; margin-bottom: 6px; }
+
+/* Rodapé sempre colado embaixo */
+.home-footer {
+  margin-top: auto;        /* empurra o rodapé pro fim */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  width: 100%;
+  background: #fff;
+  border-top: 1px solid #ddd;
+  box-sizing: border-box;
+}
+
+.status {
+  font-size: .9rem;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+

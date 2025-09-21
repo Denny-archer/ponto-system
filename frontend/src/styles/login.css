@@ -8,11 +8,31 @@
 
 body, html {
   height: 100%;
+  width: 100%;
   background: #121212; /* fundo escuro */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 0;
+  padding: 0;
 }
+
+.login-container {
+  height: 100%;               /* ocupa toda a tela */
+  display: flex;
+  justify-content: center;    /* centraliza horizontal */
+  align-items: center;        /* centraliza vertical */
+  padding: 20px;              /* respiro nas laterais */
+  box-sizing: border-box;
+}
+
+.login-box {
+  width: 100%;
+  max-width: 400px;           /* limite no desktop */
+  background: #1e1e1e;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
 
 .login-container {
   width: 100%;
