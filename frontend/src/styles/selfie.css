@@ -21,6 +21,7 @@ overflow: hidden; /* evita rolagem desnecessária */
   text-align: center;
 }
 
+
 /* Área da câmera */
 .camera-box {
 display: flex;
@@ -72,6 +73,18 @@ border-radius: 10px;
   width: 100%;
   max-width: 320px;
   justify-content: center;
+}
+.btn-voltar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  color: #3498db;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin: 12px 0;
 }
 
 /* --- Responsividade --- */

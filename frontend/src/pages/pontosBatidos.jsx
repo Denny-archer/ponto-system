@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Calendar from "react-calendar";
-import BotaoVoltar from "../componentes/BotaoVoltar"; // 👈 botão genérico
+import BotaoVoltar from "../componentes/BotaoVoltar"; 
 import "react-calendar/dist/Calendar.css";
 import "../styles/pontoBatidos.css";
 
@@ -8,11 +8,9 @@ function PontosBatidos() {
   const [selectedDate, setSelectedDate] = useState(new Date());
 
   const registros = [
-    { data: "20/09/2025", tipo: "Entrada", hora: "08:00", status: "OK" },
-    { data: "20/09/2025", tipo: "Saída", hora: "12:00", status: "OK" },
-    { data: "20/09/2025", tipo: "Retorno", hora: "13:00", status: "OK" },
-    { data: "20/09/2025", tipo: "Saída", hora: "17:02", status: "OK" },
-    { data: "21/09/2025", tipo: "Entrada", hora: "--", status: "Falta" },
+    { data: "21/09/2025", tipo: "Entrada", hora: "08:00", status: "OK" },
+    { data: "21/09/2025", tipo: "Saída", hora: "12:00", status: "Atraso" },
+    { data: "21/09/2025", tipo: "Saída", hora: "--", status: "Falta" },
   ];
 
   const formatDate = (date) => date.toLocaleDateString("pt-BR");
@@ -25,31 +23,37 @@ function PontosBatidos() {
   };
 
   const handleJustificar = (data) => {
-    alert(`✍️ Justificar falta/atraso no dia ${data}`);
+    alert(`✍️ Justificar no dia ${data}`);
   };
 
   return (
     <div className="pontos-container">
-      {/* Header com botão voltar */}
+      {/* Header */}
       <div className="pontos-header">
         <BotaoVoltar />
         <h2>Pontos Batidos</h2>
       </div>
 
       {/* Calendário */}
-      <Calendar onChange={setSelectedDate} value={selectedDate} locale="pt-BR" />
+      <div className="calendar-wrapper">
+        <Calendar
+          onChange={setSelectedDate}
+          value={selectedDate}
+          locale="pt-BR"
+        />
+      </div>
 
-      {/* Lista de pontos */}
+      {/* Registros */}
       <div className="pontos-lista">
         {pontosFiltrados.length > 0 ? (
           pontosFiltrados.map((p, i) => (
-            <div key={i} className="ponto-item">
-              <div>
-                <strong>{p.tipo}</strong> às {p.hora}
-              </div>
-              <div className={`status ${p.status.toLowerCase()}`}>
+            <div key={i} className="ponto-card">
+              <span>
+                {p.tipo} às {p.hora}
+              </span>
+              <span className={`status ${p.status.toLowerCase()}`}>
                 {p.status}
-              </div>
+              </span>
               {p.status !== "OK" && (
                 <button
                   className="btn-justificar"
@@ -65,10 +69,24 @@ function PontosBatidos() {
         )}
       </div>
 
-      {/* Botão baixar comprovante */}
-      <button className="btn-download" onClick={handleDownload}>
-        ⬇️ Baixar comprovante
-      </button>
+      {/* Área de justificativa */}
+      <div className="justificativa-box">
+        <textarea
+          placeholder="Descreva o motivo do atraso/falta..."
+          rows="3"
+        ></textarea>
+        <div className="justificativa-actions">
+          <button className="btn-anexar">📎 Anexar justificativa</button>
+          <button className="btn-enviar">Enviar justificativa</button>
+        </div>
+      </div>
+
+      {/* Botão fixo baixar comprovante */}
+      <div className="footer-fixo">
+        <button className="btn-download" onClick={handleDownload}>
+          📄 Baixar comprovante
+        </button>
+      </div>
     </div>
   );
 }

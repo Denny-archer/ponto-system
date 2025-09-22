@@ -11,6 +11,7 @@ import {
 import BotaoVoltar from "../componentes/BotaoVoltar"; // 👈 importando o botão genérico
 import "../styles/ponto.css";
 import "../styles/global.css";
+import { CalendarDays } from "lucide-react";
 
 function Ponto() {
   const navigate = useNavigate();
@@ -39,15 +40,15 @@ function Ponto() {
           }`}
           onClick={() => handleSelecionar("entrada")}
         >
-          <span className="numero">1</span>
-          <span className="texto">Entrada</span>
+          <span className="numero">Entrada</span>
+          <span className="texto"></span>
           <span className="icone">
             <FaSignInAlt />
           </span>
         </div>
 
         {/* Pausa */}
-        <div
+        {/* <div
           className={`card pausa ${
             pontoSelecionado === "pausa" ? "desabilitado" : ""
           }`}
@@ -58,10 +59,10 @@ function Ponto() {
           <span className="icone">
             <FaCoffee />
           </span>
-        </div>
+        </div> */}
 
         {/* Retorno */}
-        <div
+        {/* <div
           className={`card retorno ${
             pontoSelecionado === "retorno" ? "desabilitado" : ""
           }`}
@@ -72,7 +73,7 @@ function Ponto() {
           <span className="icone">
             <FaRedoAlt />
           </span>
-        </div>
+        </div> */}
 
         {/* Saída */}
         <div
@@ -81,8 +82,8 @@ function Ponto() {
           }`}
           onClick={() => handleSelecionar("saida")}
         >
-          <span className="numero">4</span>
-          <span className="texto">Saída</span>
+          <span className="numero">Saída</span>
+          <span className="texto"></span>
           <span className="icone">
             <FaSignOutAlt />
           </span>
@@ -91,11 +92,9 @@ function Ponto() {
 
       {/* Rodapé */}
       <div className="ponto-footer">
-        <div className="status">
-          <FaCheckCircle /> Sincronizado
-        </div>
+        
         <button className="status btn-link" onClick={() => navigate("/pontos")}>
-          <FaCalendarCheck /> <span>Pontos batidos</span>
+          <CalendarDays /> <span>Pontos batidos</span>
         </button>
       </div>
     </div>

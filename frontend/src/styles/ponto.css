@@ -60,6 +60,7 @@ html, body {
 /* Cores por tipo */
 .card.entrada {
   background: #2ecc71; /* verde */
+  height: 70%;
 }
 
 .card.pausa {
@@ -73,6 +74,7 @@ html, body {
 
 .card.saida {
   background: #e74c3c; /* vermelho */
+  height: 70%;
 }
 
 /* Quando já registrado (desabilitado) */
@@ -108,9 +110,15 @@ html, body {
   box-sizing: border-box;
 }
 
+.stat{
+  font-size: 0.9rem;
+  color: black;
+  
+  
+}
 .status {
   font-size: 0.9rem;
-  color: #333;
+  color: #ffff;
   display: flex;
   align-items: center;
   gap: 6px;

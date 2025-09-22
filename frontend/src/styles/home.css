@@ -9,6 +9,7 @@ html, body, #root {
   height: 100%;
   width: 100%;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 /* Container principal */
@@ -16,66 +17,116 @@ html, body, #root {
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 100dvh;     /* ocupa altura total no mobile */
+  min-height: 100dvh;
   margin: 0;
   padding: 0;
-  background: #f5f5f5;
+  background: white;
   overflow-x: hidden;
   box-sizing: border-box;
 }
+
+/* Cabeçalho fixo */
 .home-header {
+  background: #fff;
+  color: #000000af;
+  padding: 20px;
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
-/* Bloco vermelho ocupando toda a área útil (menos o rodapé) */
-.card-bater-ponto {
+.header-info {
   flex: 1;
-  width: 100%;
-  margin: 0;              /* sem margem lateral */
-  padding: 0;
-  border-radius: 0;        /* sem bordas arredondadas */
-  box-shadow: none;
-  background: #e74c3c;
+  text-align: center;
+}
 
+.home-header h1 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.home-header p {
+  margin: 4px 0;
+  font-size: 0.95rem;
+  font-weight: 400;
+}
+
+.header-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 16px;
+}
+
+.avatar-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ddd;
+}
+
+/* Botão circular centralizado */
+.card-bater-ponto {
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  border-radius: 50%;
+  background: #e74c3c;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   color: #fff;
   text-align: center;
-  font-weight: 700;
-  font-size: 1.2rem;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 1.1rem;
   cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
 }
 
-/* Tipografia interna */
-.card-bater-ponto h2 { margin: 8px 0 4px; }
-.card-bater-ponto p  { font-size: .95rem; }
-.clock-icon { font-size: 2.2rem; margin-bottom: 6px; }
+.card-bater-ponto:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35);
+}
 
-/* Rodapé sempre colado embaixo */
+.card-bater-ponto p {
+  margin: 6px 0 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Rodapé fixo */
 .home-footer {
-  margin-top: auto;        /* empurra o rodapé pro fim */
   display: flex;
   justify-content: space-around;
   align-items: center;
-  gap: 12px;
-  padding: 10px 12px;
-  width: 100%;
-  background: #fff;
+  background: white;
+  padding: 12px;
   border-top: 1px solid #ddd;
+  width: 100%;
   box-sizing: border-box;
 }
 
-.status {
-  font-size: .9rem;
-  color: #333;
+.home-footer button {
+  font-size: 0.9rem;
+  color: #ffff;
   display: flex;
   align-items: center;
   gap: 6px;
 }
 
+.status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}

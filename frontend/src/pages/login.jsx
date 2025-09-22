@@ -2,6 +2,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/login.css";
 
+import userPhoto from "../assets/coffito.png.png"
+
 function Login() {
   const navigate = useNavigate();
 
